@@ -42,6 +42,7 @@ Here's a recap of all the tasks you've accomplished in your repository:
 
 ### etc
 - add something.
+- test token
 
 <footer>
 
