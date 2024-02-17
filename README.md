@@ -43,6 +43,7 @@ Here's a recap of all the tasks you've accomplished in your repository:
 ### etc
 - add something.
 - add 1
+- test labeler 1
 
 <footer>
 
