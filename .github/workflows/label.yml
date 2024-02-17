@@ -17,6 +17,9 @@ jobs:
       pull-requests: write
 
     steps:
+    - uses: actions/checkout@v4 # Uploads repository content to the runner
+      with:
+        repository: "dudutou/skills-hello-github-actions"
     - uses: actions/labeler@v5
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
