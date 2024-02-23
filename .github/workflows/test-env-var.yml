@@ -13,10 +13,13 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  WORKFLOW_CUSTOM_ENV_VAR: workflow env
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  test-default-env-var:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -31,3 +34,16 @@ jobs:
           echo "print GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
           echo "print GITHUB_JOB: $GITHUB_JOB"
           echo "print GITHUB_ACTION_REPOSITORY: $GITHUB_ACTION_REPOSITORY"
+  test-custom-env-var:
+    runs-on: ubuntu-latest
+    env:
+      JOB_CUSTOM_ENV_VAR: job env
+    steps:
+      - name: test custom env var
+        run: |
+          echo "print WORKFLOW_CUSTOM_ENV_VAR: $WORKFLOW_CUSTOM_ENV_VAR"
+          echo "print JOB_CUSTOM_ENV_VAR: $JOB_CUSTOM_ENV_VAR"
+          echo "print STEP_CUSTOM_ENV_VAR: $STEP_CUSTOM_ENV_VAR"
+        env:
+          STEP_CUSTOM_ENV_VAR: step env
+        
