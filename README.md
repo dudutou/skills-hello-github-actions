@@ -42,7 +42,7 @@ Here's a recap of all the tasks you've accomplished in your repository:
 
 ### etc
 - add something.
-- add 1
+- add 2
 
 <footer>
 
