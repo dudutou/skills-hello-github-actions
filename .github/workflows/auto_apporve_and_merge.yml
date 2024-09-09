@@ -2,12 +2,15 @@ name: test/auto_merge_and_auto_approve
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened, ready_for_review]
 
 jobs:
   auto-approve-and-merge:
     runs-on: ubuntu-latest
 
+    permissions:
+      pull-requests: write
+      contents: write
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -18,6 +21,6 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Auto merge the pull request
-      uses: peter-evans/enable-pull-request-automerge@v2
+      uses: peter-evans/enable-pull-request-automerge@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
