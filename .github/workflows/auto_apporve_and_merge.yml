@@ -1,7 +1,8 @@
 name: test/auto_merge_and_auto_approve
 
 on:
-  pull_request_target
+  pull_request_target:
+    types: [assigned, opened, synchronize, reopened, ready_for_review]
 
 jobs:
   auto-approve-and-merge:
@@ -12,6 +13,8 @@ jobs:
     steps:
     - name: Auto approve the pull request
       uses: hmarr/auto-approve-action@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Auto merge the pull request
       uses: peter-evans/enable-pull-request-automerge@v2
